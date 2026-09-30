@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- شاشة الترحيب -->
+    <div id="welcome-screen" class="screen">
+        <h1 class="main-title">Happy Birthday</h1>
+        <p class="subtitle"><span id="girl-name">[اسمها]</span></p>
+        <button onclick="startExperience()">Let's Begin</button>
+    </div>
+
+    <!-- شاشة العداد -->
+    <div id="countdown-screen" class="screen hidden">
+        <h2>العداد</h2>
+        <div id="countdown" class="countdown">--:--:--</div>
+        <p>استنى شوية...</p>
+    </div>
+
+    <!-- شاشة الباسورد -->
+    <div id="password-screen" class="screen hidden">
+        <h2></h2>
+        <input type="password" id="password-input" placeholder="[password]">
+        <button onclick="checkPassword()">submit</button>
+        <p id="password-error" class="error"></p>
+    </div>
+
+    <!-- شاشة الرسالة الشخصية -->
+    <div id="message-screen" class="screen hidden">
+        <h2>رسالة خاصة</h2>
+        <div id="typewriter" class="typewriter"></div>
+        <button id="continue-btn" class="hidden" onclick="showGallery()">proceed</button>
+    </div>
+
+    <!-- شاشة المعرض -->
+    <div id="gallery-screen" class="gallery-full hidden">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="progress-text">0 / 19</div>
+        </div>
+        <div id="gallery" class="gallery"></div>
+    </div>
+
+    <!-- شاشة الرسالة النهائية -->
+    <div id="final-screen" class="screen hidden">
+        <h2>final-message</h2>
+        <div id="final-message" class="final-message"></div>
+        <button onclick="restart()">final</button>
+    </div>
+
+    <!-- Lightbox -->
+   <div id="lightbox" class="lightbox hidden">
+    <div class="lightbox-content">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        
+        <div class="lightbox-main">
+            <button class="nav-btn prev-btn" onclick="prevImage()">‹</button>
+            
+            <img id="lightbox-img" src="" alt="">
+            
+            <button class="nav-btn next-btn" onclick="nextImage()">›</button>
+            
+            <div class="lightbox-info">
+                <div class="lightbox-word" id="lightbox-word"></div>
+                <audio id="image-audio" controls></audio>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <audio id="birthday-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
